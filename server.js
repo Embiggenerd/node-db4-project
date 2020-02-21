@@ -4,11 +4,11 @@ const server = express()
 
 server.use(express.json())
 
-// const { recipeRouter, ingredientsRouter, stepsRouter} = require('./routes')
+const { recipesRouter, ingredientsRouter, stepsRouter} = require('./routes')
 
-// server.use('/recipes', recipeRouter)
-// server.use('/ingredients',ingredientsRouter)
-// server.use('/steps', stepsRouter)
+server.use('/recipes', recipesRouter)
+server.use('/ingredients',ingredientsRouter)
+server.use('/steps', stepsRouter)
 
 server.use((err, req, res, next)=>{
     res.status(err.httpStatusCode || 500).json({
